@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>ClientProxy.h</itemPath>
+      <itemPath>RequestHandler.h</itemPath>
+      <itemPath>Server.h</itemPath>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +16,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>ClientProxy.cpp</itemPath>
+      <itemPath>RequestHandler.cpp</itemPath>
+      <itemPath>Server.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -40,7 +47,21 @@
           <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/msgd</output>
         </linkerTool>
       </compileType>
+      <item path="ClientProxy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ClientProxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RequestHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RequestHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -64,7 +85,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="ClientProxy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ClientProxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RequestHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RequestHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Server.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="main.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

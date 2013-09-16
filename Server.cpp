@@ -7,13 +7,15 @@
 #include "Server.h"
 
 #include <arpa/inet.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "main.h"
 
 Server::Server(int port) {
     this->init(port);
     this->serve();
-}
-
-Server::Server(const Server& orig) {
 }
 
 Server::~Server() {
@@ -64,9 +66,22 @@ void Server::serve() {
 
       // accept clients
     while ((clientId = accept(this->serverId, (struct sockaddr *)&client_addr, &clientlen)) > 0) {
-        handle(clientId);
+        service(new ClientProxy(clientId));
         close(clientId);
     }
     
     close(this->serverId);
+}
+
+void Server::service(ClientProxy* client) {
+    debug("Server::handle -- servicing client");
+    
+    string request;
+    while (request = client->getRequestLine()) {
+        // get the request handler for the request
+        
+        // handle the request
+        
+        // send the response to the client
+    }
 }

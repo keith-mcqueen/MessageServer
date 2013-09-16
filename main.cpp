@@ -4,8 +4,11 @@
  *
  * Created on September 16, 2013, 4:19 PM
  */
+#include "main.h"
 
 #include <cstdlib>
+#include <iostream>
+#include <unistd.h>
 
 using namespace std;
 

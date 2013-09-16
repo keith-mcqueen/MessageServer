@@ -8,15 +8,17 @@
 #ifndef SERVER_H
 #define	SERVER_H
 
+#include "ClientProxy.h"
+
 class Server {
 public:
     Server(int port);
-    Server(const Server& orig);
     virtual ~Server();
 
 private:
     void init(int port);
     void serve();
+    void service(ClientProxy* client);
     
     int serverId;
 };

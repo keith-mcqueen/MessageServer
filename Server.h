@@ -9,18 +9,18 @@
 #define	SERVER_H
 
 #include "ClientProxy.h"
+#include "RequestHandler.h"
 
 class Server {
 public:
-    Server(int port);
     virtual ~Server();
+    void serve(int port);
+    
+    static Server* instance();
 
 private:
-    void init(int port);
-    void serve();
     void service(ClientProxy* client);
-    
-    int serverId;
+    RequestHandler* getRequestHandler(string request);
 };
 
 #endif	/* SERVER_H */

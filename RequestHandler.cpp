@@ -27,3 +27,7 @@ bool RequestHandler::canHandle(string request) {
     
     return 0 == found;
 }
+
+void RequestHandler::handleRequest(string request, ClientProxy* client) {
+    
+}

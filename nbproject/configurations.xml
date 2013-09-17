@@ -5,7 +5,11 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>ClientProxy.h</itemPath>
+      <itemPath>ErrorResponse.h</itemPath>
+      <itemPath>GetResponse.h</itemPath>
+      <itemPath>ListResponse.h</itemPath>
       <itemPath>RequestHandler.h</itemPath>
+      <itemPath>Response.h</itemPath>
       <itemPath>Server.h</itemPath>
       <itemPath>main.h</itemPath>
     </logicalFolder>
@@ -17,7 +21,13 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>ClientProxy.cpp</itemPath>
+      <itemPath>DefaultHandler.cpp</itemPath>
+      <itemPath>DefaultHandler.h</itemPath>
+      <itemPath>ErrorResponse.cpp</itemPath>
+      <itemPath>GetResponse.cpp</itemPath>
+      <itemPath>ListResponse.cpp</itemPath>
       <itemPath>RequestHandler.cpp</itemPath>
+      <itemPath>Response.cpp</itemPath>
       <itemPath>Server.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -51,9 +61,29 @@
       </item>
       <item path="ClientProxy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DefaultHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DefaultHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ErrorResponse.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ErrorResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GetResponse.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GetResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListResponse.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="RequestHandler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequestHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Response.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Response.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Server.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -89,9 +119,29 @@
       </item>
       <item path="ClientProxy.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="DefaultHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="DefaultHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ErrorResponse.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ErrorResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GetResponse.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GetResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListResponse.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="RequestHandler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequestHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Response.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Response.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Server.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -8,6 +8,7 @@
 
 #include <errno.h>
 #include <arpa/inet.h>
+#include <stdio.h>
 #include "main.h"
 
 ClientProxy::ClientProxy(int clientId) {
@@ -88,4 +89,41 @@ string ClientProxy::getRequestString(int length) {
     
     // return the portion of the response that precedes the newline
     return request.substr(0, length);
+}
+
+bool ClientProxy::sendResponse(Response* response) {
+    // get the request string
+    string responseString = response->toString();
+    
+    // initialize the number of characters to send (the length of the request string)
+    int numCharsToSend = responseString.size();
+    int numCharsSent;
+    
+    const char* req = responseString.c_str();
+    
+    // as long as there are still characters to be sent...
+    while (numCharsToSend) {
+        debug("ClientProxy::sendResponse -- sending response data to client");
+        if ((numCharsSent = send(this->clientId, req, numCharsToSend, 0)) < 0) {
+            if (errno == EINTR) {
+                // the socket call was interrupted -- just try again
+                continue;
+            } else {
+                // something bad happened
+                perror("write");
+                return false;
+            }
+        } else if (numCharsSent == 0) {
+            // the socket is closed
+            return false;
+        }
+        
+        // update the number of characters left to be sent
+        numCharsToSend -= numCharsSent;
+        
+        // update the request pointer position
+        req += numCharsSent;
+    }
+    
+    return true;
 }

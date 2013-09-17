@@ -5,6 +5,7 @@
  * Created on September 16, 2013, 4:19 PM
  */
 #include "main.h"
+#include "Server.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -45,6 +46,9 @@ int main(int argc, char** argv) {
                 exit(EXIT_FAILURE);
         }
     }
+    
+    Server* server = Server::instance();
+    server->serve(port);
 
     return 0;
 }

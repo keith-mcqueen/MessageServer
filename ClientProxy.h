@@ -9,6 +9,7 @@
 #define	CLIENTPROXY_H
 
 #include <string>
+#include "Response.h"
 
 using namespace std;
 
@@ -18,6 +19,7 @@ public:
     virtual ~ClientProxy();
     string getRequestLine();
     string getRequestString(int length);
+    bool sendResponse(Response* response);
 
 private:
     int clientId;

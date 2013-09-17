@@ -36,7 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/ClientProxy.o \
+	${OBJECTDIR}/DefaultHandler.o \
+	${OBJECTDIR}/ErrorResponse.o \
+	${OBJECTDIR}/GetResponse.o \
+	${OBJECTDIR}/ListResponse.o \
 	${OBJECTDIR}/RequestHandler.o \
+	${OBJECTDIR}/Response.o \
 	${OBJECTDIR}/Server.o \
 	${OBJECTDIR}/main.o
 
@@ -70,10 +75,35 @@ ${OBJECTDIR}/ClientProxy.o: ClientProxy.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ClientProxy.o ClientProxy.cpp
 
+${OBJECTDIR}/DefaultHandler.o: DefaultHandler.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/DefaultHandler.o DefaultHandler.cpp
+
+${OBJECTDIR}/ErrorResponse.o: ErrorResponse.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ErrorResponse.o ErrorResponse.cpp
+
+${OBJECTDIR}/GetResponse.o: GetResponse.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/GetResponse.o GetResponse.cpp
+
+${OBJECTDIR}/ListResponse.o: ListResponse.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ListResponse.o ListResponse.cpp
+
 ${OBJECTDIR}/RequestHandler.o: RequestHandler.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/RequestHandler.o RequestHandler.cpp
+
+${OBJECTDIR}/Response.o: Response.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Response.o Response.cpp
 
 ${OBJECTDIR}/Server.o: Server.cpp 
 	${MKDIR} -p ${OBJECTDIR}

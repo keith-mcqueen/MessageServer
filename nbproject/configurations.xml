@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>ClientProxy.h</itemPath>
+      <itemPath>DefaultHandler.h</itemPath>
       <itemPath>ErrorResponse.h</itemPath>
       <itemPath>GetResponse.h</itemPath>
       <itemPath>ListResponse.h</itemPath>
@@ -22,7 +23,6 @@
                    projectFiles="true">
       <itemPath>ClientProxy.cpp</itemPath>
       <itemPath>DefaultHandler.cpp</itemPath>
-      <itemPath>DefaultHandler.h</itemPath>
       <itemPath>ErrorResponse.cpp</itemPath>
       <itemPath>GetResponse.cpp</itemPath>
       <itemPath>ListResponse.cpp</itemPath>

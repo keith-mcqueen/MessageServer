@@ -24,6 +24,8 @@ public:
 private:
     int clientId;
     string leftOvers;
+    char* buf;
+    int buflen;
 };
 
 #endif	/* CLIENTPROXY_H */

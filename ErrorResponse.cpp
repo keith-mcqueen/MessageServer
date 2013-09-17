@@ -18,7 +18,7 @@ ErrorResponse::~ErrorResponse() {
 string ErrorResponse::getHeader() {
     stringstream ss;
     
-    ss << Response::getHeader() << " " << this->description << endl;
+    ss << Response::getHeader() << " " << this->description;
     
     return ss.str();
 }

@@ -20,7 +20,7 @@ public:
 protected:
     virtual string getRequestPrefix();
     virtual string getName();
-    virtual void doHandleRequest(string request, ClientProxy* client);
+    virtual bool doHandleRequest(string request, ClientProxy* client);
 
 private:
 

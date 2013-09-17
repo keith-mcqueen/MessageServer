@@ -48,7 +48,7 @@ void Server::serve(int port) {
 
     // call bind to associate the socket with our local address and
     // port
-    if (bind(serverId,(const struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+    if (bind(serverId, (const struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
         perror("bind");
         exit(-1);
     }
@@ -66,23 +66,31 @@ void Server::serve(int port) {
 
       // accept clients
     while ((clientId = accept(serverId, (struct sockaddr *)&client_addr, &clientlen)) > 0) {
-        service(new ClientProxy(clientId));
+        ClientProxy* client = new ClientProxy(clientId);
+        service(client);
         close(clientId);
+        delete client;
     }
     
     close(serverId);
 }
 
 void Server::service(ClientProxy* client) {
-    debug("Server::handle -- servicing client");
+    debug("Server::service -- servicing client");
     
-    string request;
-    while (!(request = client->getRequestLine()).empty()) {
+    while (true) {
+        string request = client->getRequestLine();
+        if (request.empty()) {
+            continue;
+        }
+        
         // get the request handler for the request
+        RequestHandler* handler = this->getRequestHandler(request);
         
         // handle the request
-        
-        // send the response to the client
+        if (not handler->handleRequest(request, client)) {
+            break;
+        }
     }
 }
 

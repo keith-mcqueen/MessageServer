@@ -6,6 +6,8 @@
  */
 
 #include "RequestHandler.h"
+#include "ErrorResponse.h"
+#include "main.h"
 
 RequestHandler::RequestHandler() {
 }
@@ -28,6 +30,16 @@ bool RequestHandler::canHandle(string request) {
     return 0 == found;
 }
 
-void RequestHandler::handleRequest(string request, ClientProxy* client) {
+bool RequestHandler::handleRequest(string request, ClientProxy* client) {
+    debug(this->getName() + " is handling request: " + request);
+    if (not this->canHandle(request)) {
+        ErrorResponse* response = new ErrorResponse("Unexpected request: " + request);
+        
+        bool success = client->sendResponse(response);
+        delete response;
+        
+        return success;
+    }
     
+    return this->doHandleRequest(request, client);
 }

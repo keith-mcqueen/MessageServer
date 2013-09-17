@@ -20,8 +20,13 @@ bool DefaultHandler::canHandle(string request) {
     return true;
 }
 
-void DefaultHandler::doHandleRequest(string request, ClientProxy* client) {
-    client->sendResponse(new ErrorResponse("Unrecognized request: " + request));
+bool DefaultHandler::doHandleRequest(string request, ClientProxy* client) {
+    ErrorResponse* response = new ErrorResponse("Unrecognized request: " + request);
+    
+    bool success = client->sendResponse(response);
+    delete response;
+    
+    return success;
 }
 
 string DefaultHandler::getRequestPrefix() {

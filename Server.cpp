@@ -81,7 +81,7 @@ void Server::service(ClientProxy* client) {
     while (true) {
         string request = client->getRequestLine();
         if (request.empty()) {
-            continue;
+            break;
         }
         
         // get the request handler for the request
@@ -109,4 +109,31 @@ RequestHandler* Server::getRequestHandler(string request) {
     
     debug("Server::getRequestHandler -- no request handler found, returning default handler");
     return DefaultHandler::instance();
+}
+
+void Server::addMessage(string recipient, Message* message) {
+    this->messagesByRecipient.insert(pair<string, Message*>(recipient, message));
+}
+
+vector<Message*> Server::getMessages(string recipient) {
+    vector<Message*> messages;
+    
+    pair<multimap<string, Message*>::iterator, multimap<string, Message*>::iterator> range;
+    range = this->messagesByRecipient.equal_range(recipient);
+    for (multimap<string, Message*>::iterator it = range.first; it != range.second; ++it) {
+        messages.push_back(it->second);
+    }
+    
+    return messages;
+}
+
+void Server::reset() {
+    for (multimap<string, Message*>::iterator it = this->messagesByRecipient.begin(); 
+            it != this->messagesByRecipient.end(); 
+            ++it) {
+        Message* message = it->second;
+        delete message;
+    }
+    
+    this->messagesByRecipient.clear();
 }

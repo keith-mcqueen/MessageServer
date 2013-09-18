@@ -19,7 +19,7 @@ GetResponse::~GetResponse() {
 string GetResponse::getHeader() {
     stringstream ss;
     
-    ss << Response::getHeader() << " " << this->subject << " " << this->message.length() << endl;
+    ss << Response::getHeader() << " " << this->subject << " " << this->message.length();
     
     return ss.str();
 }

@@ -38,9 +38,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/ClientProxy.o \
 	${OBJECTDIR}/DefaultHandler.o \
 	${OBJECTDIR}/ErrorResponse.o \
+	${OBJECTDIR}/GetHandler.o \
 	${OBJECTDIR}/GetResponse.o \
+	${OBJECTDIR}/ListHandler.o \
 	${OBJECTDIR}/ListResponse.o \
+	${OBJECTDIR}/Message.o \
+	${OBJECTDIR}/PutHandler.o \
 	${OBJECTDIR}/RequestHandler.o \
+	${OBJECTDIR}/ResetHandler.o \
 	${OBJECTDIR}/Response.o \
 	${OBJECTDIR}/Server.o \
 	${OBJECTDIR}/main.o
@@ -85,20 +90,45 @@ ${OBJECTDIR}/ErrorResponse.o: ErrorResponse.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ErrorResponse.o ErrorResponse.cpp
 
+${OBJECTDIR}/GetHandler.o: GetHandler.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/GetHandler.o GetHandler.cpp
+
 ${OBJECTDIR}/GetResponse.o: GetResponse.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/GetResponse.o GetResponse.cpp
+
+${OBJECTDIR}/ListHandler.o: ListHandler.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ListHandler.o ListHandler.cpp
 
 ${OBJECTDIR}/ListResponse.o: ListResponse.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ListResponse.o ListResponse.cpp
 
+${OBJECTDIR}/Message.o: Message.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Message.o Message.cpp
+
+${OBJECTDIR}/PutHandler.o: PutHandler.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/PutHandler.o PutHandler.cpp
+
 ${OBJECTDIR}/RequestHandler.o: RequestHandler.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/RequestHandler.o RequestHandler.cpp
+
+${OBJECTDIR}/ResetHandler.o: ResetHandler.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ResetHandler.o ResetHandler.cpp
 
 ${OBJECTDIR}/Response.o: Response.cpp 
 	${MKDIR} -p ${OBJECTDIR}

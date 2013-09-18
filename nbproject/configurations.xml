@@ -7,9 +7,14 @@
       <itemPath>ClientProxy.h</itemPath>
       <itemPath>DefaultHandler.h</itemPath>
       <itemPath>ErrorResponse.h</itemPath>
+      <itemPath>GetHandler.h</itemPath>
       <itemPath>GetResponse.h</itemPath>
+      <itemPath>ListHandler.h</itemPath>
       <itemPath>ListResponse.h</itemPath>
+      <itemPath>Message.h</itemPath>
+      <itemPath>PutHandler.h</itemPath>
       <itemPath>RequestHandler.h</itemPath>
+      <itemPath>ResetHandler.h</itemPath>
       <itemPath>Response.h</itemPath>
       <itemPath>Server.h</itemPath>
       <itemPath>main.h</itemPath>
@@ -24,9 +29,14 @@
       <itemPath>ClientProxy.cpp</itemPath>
       <itemPath>DefaultHandler.cpp</itemPath>
       <itemPath>ErrorResponse.cpp</itemPath>
+      <itemPath>GetHandler.cpp</itemPath>
       <itemPath>GetResponse.cpp</itemPath>
+      <itemPath>ListHandler.cpp</itemPath>
       <itemPath>ListResponse.cpp</itemPath>
+      <itemPath>Message.cpp</itemPath>
+      <itemPath>PutHandler.cpp</itemPath>
       <itemPath>RequestHandler.cpp</itemPath>
+      <itemPath>ResetHandler.cpp</itemPath>
       <itemPath>Response.cpp</itemPath>
       <itemPath>Server.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -69,17 +79,37 @@
       </item>
       <item path="ErrorResponse.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GetHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GetHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GetResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GetResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListHandler.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ListResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ListResponse.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Message.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Message.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PutHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PutHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="RequestHandler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequestHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ResetHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ResetHandler.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Response.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -127,17 +157,37 @@
       </item>
       <item path="ErrorResponse.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="GetHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GetHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GetResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GetResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ListHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ListHandler.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ListResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ListResponse.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Message.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Message.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PutHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PutHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="RequestHandler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequestHandler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ResetHandler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ResetHandler.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Response.cpp" ex="false" tool="1" flavor2="0">
       </item>

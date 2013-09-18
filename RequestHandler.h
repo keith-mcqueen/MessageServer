@@ -15,7 +15,7 @@ using namespace std;
 
 class RequestHandler {
 public:
-    RequestHandler();
+    //RequestHandler();
     virtual ~RequestHandler();
     virtual bool canHandle(string request);
     virtual bool handleRequest(string request, ClientProxy* client);
@@ -26,6 +26,8 @@ protected:
     virtual string getRequestPrefix() = 0;
     virtual string getName() = 0;
     virtual bool doHandleRequest(string request, ClientProxy* client) = 0;
+    bool sendErrorResponse(string error, ClientProxy* client);
+    bool sendOKResponse(ClientProxy* client);
     
 private:
 

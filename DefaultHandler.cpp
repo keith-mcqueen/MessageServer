@@ -21,12 +21,7 @@ bool DefaultHandler::canHandle(string request) {
 }
 
 bool DefaultHandler::doHandleRequest(string request, ClientProxy* client) {
-    ErrorResponse* response = new ErrorResponse("Unrecognized request: " + request);
-    
-    bool success = client->sendResponse(response);
-    delete response;
-    
-    return success;
+    return this->sendErrorResponse("Unrecognized request: " + request, client);
 }
 
 string DefaultHandler::getRequestPrefix() {

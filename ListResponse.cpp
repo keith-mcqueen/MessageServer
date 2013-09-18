@@ -21,7 +21,7 @@ void ListResponse::addSubject(string subject) {
 string ListResponse::getHeader() {
     stringstream ss;
     
-    ss << Response::getHeader() << " " << this->subjects.size() << endl;
+    ss << Response::getHeader() << " " << this->subjects.size();
     
     return ss.str();
 }

@@ -40,6 +40,11 @@ bool GetHandler::doHandleRequest(string request, ClientProxy* client) {
     
     // get the message from the server
     vector<Message*> messages = Server::instance()->getMessages(recipient);
+    if (idx <= 0 || idx > messages.size()) {
+        return RequestHandler::sendErrorResponse("No message numbered " + 
+                msgNum + " for recipient " + recipient, client);
+    }
+    
     Message* msg = messages.at(idx - 1);
     
     // prepare the response

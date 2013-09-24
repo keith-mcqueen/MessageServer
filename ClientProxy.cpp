@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <sys/socket.h>
+#include <unistd.h>
 #include "main.h"
 
 ClientProxy::ClientProxy(int clientId) {
@@ -125,4 +126,8 @@ bool ClientProxy::sendResponse(Response* response) {
     }
     
     return true;
+}
+
+void ClientProxy::terminate() {
+    close(this->clientId);
 }

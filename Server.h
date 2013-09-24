@@ -9,17 +9,18 @@
 #define	SERVER_H
 
 #include <vector>
-#include <map>
+#include <pthread.h>
 #include "ClientProxy.h"
 #include "RequestHandler.h"
 #include "Message.h"
+#include "MessageStore.h"
 
 using namespace std;
 
 class Server {
 public:
     virtual ~Server();
-    void serve(int port);
+    void serve(int port, int maxClients, int numThreads);
     void addMessage(string recipient, Message* message);
     vector<Message*> getMessages(string recipient);
     void reset();
@@ -27,9 +28,12 @@ public:
     static Server* instance();
 
 private:
+    int initSocket(int port);
     void service(ClientProxy* client);
     RequestHandler* getRequestHandler(string request);
-    multimap<string, Message*> messagesByRecipient;
+    static void* run(void* context);
+    
+    MessageStore store;
 };
 
 #endif	/* SERVER_H */

@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
     }
     
     Server* server = Server::instance();
-    server->serve(port);
+    server->serve(port, 100, 10);
 
     return 0;
 }

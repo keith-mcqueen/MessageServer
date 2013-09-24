@@ -20,6 +20,7 @@ public:
     string getRequestLine();
     string getRequestString(int length);
     bool sendResponse(Response* response);
+    void terminate();
 
 private:
     int clientId;

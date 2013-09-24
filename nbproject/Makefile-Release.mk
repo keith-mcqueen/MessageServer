@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/ClientManager.o \
 	${OBJECTDIR}/ClientProxy.o \
 	${OBJECTDIR}/DefaultHandler.o \
 	${OBJECTDIR}/ErrorResponse.o \
@@ -43,11 +44,13 @@ OBJECTFILES= \
 	${OBJECTDIR}/ListHandler.o \
 	${OBJECTDIR}/ListResponse.o \
 	${OBJECTDIR}/Message.o \
+	${OBJECTDIR}/MessageStore.o \
 	${OBJECTDIR}/PutHandler.o \
 	${OBJECTDIR}/RequestHandler.o \
 	${OBJECTDIR}/ResetHandler.o \
 	${OBJECTDIR}/Response.o \
 	${OBJECTDIR}/Server.o \
+	${OBJECTDIR}/ThreadPool.o \
 	${OBJECTDIR}/main.o
 
 
@@ -74,6 +77,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/messageserver: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/messageserver ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/ClientManager.o: ClientManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ClientManager.o ClientManager.cpp
 
 ${OBJECTDIR}/ClientProxy.o: ClientProxy.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -115,6 +123,11 @@ ${OBJECTDIR}/Message.o: Message.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Message.o Message.cpp
 
+${OBJECTDIR}/MessageStore.o: MessageStore.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/MessageStore.o MessageStore.cpp
+
 ${OBJECTDIR}/PutHandler.o: PutHandler.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
@@ -139,6 +152,11 @@ ${OBJECTDIR}/Server.o: Server.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/Server.o Server.cpp
+
+${OBJECTDIR}/ThreadPool.o: ThreadPool.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/ThreadPool.o ThreadPool.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

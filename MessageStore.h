@@ -20,13 +20,15 @@ public:
     virtual ~MessageStore();
     void addMessage(string recipient, Message* message);
     vector<Message*> getMessages(string recipient);
+    string getMessageListAsString(string recipient);
     void clear();
 
 private:
     void lock();
     void unlock();
     
-    multimap<string, Message*> messagesByRecipient;
+    map<string, vector<Message*> > messagesByRecipient;
+    map<string, string> messageListStringsByRecipient;
     sem_t lock_;
 };
 

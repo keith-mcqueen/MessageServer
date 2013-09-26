@@ -5,6 +5,8 @@
  * Created on September 23, 2013, 10:29 PM
  */
 
+#include <sstream>
+
 #include "MessageStore.h"
 
 MessageStore::MessageStore() {
@@ -17,7 +19,16 @@ MessageStore::~MessageStore() {
 void MessageStore::addMessage(string recipient, Message* message) {
     this->lock();
     
-    this->messagesByRecipient.insert(pair<string, Message*>(recipient, message));
+    // add the message to the recipient's messages
+    vector<Message*> messages = this->messagesByRecipient[recipient];
+    messages.push_back(message);
+    this->messagesByRecipient[recipient] = messages;
+    
+    // update the recipient's message-list string
+    stringstream ss;
+    ss << this->messageListStringsByRecipient[recipient];
+    ss << messages.size() << " " << message->getSubject() << endl;
+    this->messageListStringsByRecipient[recipient] = ss.str();
     
     this->unlock();
 }
@@ -25,30 +36,40 @@ void MessageStore::addMessage(string recipient, Message* message) {
 vector<Message*> MessageStore::getMessages(string recipient) {
     this->lock();
     
-    vector<Message*> messages;
-    
-    pair<multimap<string, Message*>::iterator, multimap<string, Message*>::iterator> range;
-    range = this->messagesByRecipient.equal_range(recipient);
-    for (multimap<string, Message*>::iterator it = range.first; it != range.second; ++it) {
-        messages.push_back(it->second);
-    }
+    vector<Message*> messages = this->messagesByRecipient[recipient];
     
     this->unlock();
     
     return messages;
 }
 
+string MessageStore::getMessageListAsString(string recipient) {
+    this->lock();
+    
+    string messageList = this->messageListStringsByRecipient[recipient];
+    
+    this->unlock();
+    
+    return messageList;
+}
+
 void MessageStore::clear() {
     this->lock();
     
-    for (multimap<string, Message*>::iterator it = this->messagesByRecipient.begin(); 
-            it != this->messagesByRecipient.end(); 
+    // clear out the messages
+    for (map<string, vector<Message*> >::iterator it = this->messagesByRecipient.begin();
+            it != this->messagesByRecipient.end();
             ++it) {
-        Message* message = it->second;
-        delete message;
+        vector<Message*> messages = (*it).second;
+        for (vector<Message*>::iterator it2 = messages.begin(); it2 != messages.end(); ++it2) {
+            Message* message = *it2;
+            delete message;
+        }
     }
-    
     this->messagesByRecipient.clear();
+    
+    // clear out the message-list strings
+    this->messageListStringsByRecipient.clear();
     
     this->unlock();
 }

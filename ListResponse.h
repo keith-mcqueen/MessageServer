@@ -9,20 +9,23 @@
 #define	LISTRESPONSE_H
 
 #include "Response.h"
+#include "Message.h"
 #include <vector>
 
 class ListResponse : public Response {
 public:
     ListResponse();
     virtual ~ListResponse();
-    void addSubject(string subject);
+    void setMessageCount(int count);
+    void setMessageList(string messageList);
 
 protected:
     virtual string getHeader();
     virtual string getBody();
 
 private:
-    vector<string> subjects;
+    int messageCount;
+    string messageList;
 };
 
 #endif	/* LISTRESPONSE_H */

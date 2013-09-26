@@ -23,8 +23,6 @@ Server::~Server() {
 
 Server* Server::instance() {
     static Server* instance = new Server();
-    //instance->store = new MessageStore();
-    
     return instance;
 }
 
@@ -58,9 +56,10 @@ void Server::serve(int port, int maxClients, int numThreads) {
     // close the server socket
     debug("Server::serve -- closing server socket");
     close(serverId);
-    
-    // wait for threads to finish
-    //pool->join();
+
+    // clean up some memory (even though this will likely not ever be reached)
+    delete mgr;
+    delete pool;
 }
 
 int Server::initSocket(int port) {
@@ -127,20 +126,7 @@ void Server::service(ClientProxy* client) {
 }
 
 RequestHandler* Server::getRequestHandler(string request) {
-    debug("Server::getRequestHandler -- getting request handler for request: " + request);
-    
-    list<RequestHandler*> handlers = RequestHandler::getHandlers();
-    for (list<RequestHandler*>::iterator it = handlers.begin();
-            it != handlers.end();
-            ++it) {
-        RequestHandler* handler = *it;
-        if (handler->canHandle(request)) {
-            return handler;
-        }
-    }
-    
-    debug("Server::getRequestHandler -- no request handler found, returning default handler");
-    return DefaultHandler::instance();
+    return RequestHandler::getRequestHandler(request);
 }
 
 void Server::addMessage(string recipient, Message* message) {
@@ -151,6 +137,11 @@ void Server::addMessage(string recipient, Message* message) {
 vector<Message*> Server::getMessages(string recipient) {
     debug("Server::getMessages -- getting messages from the store");
     return this->store.getMessages(recipient);
+}
+
+string Server::getMessageListAsString(string recipient) {
+    debug("Server::getMessageListAsString -- getting message list string from the store");
+    return this->store.getMessageListAsString(recipient);
 }
 
 void Server::reset() {

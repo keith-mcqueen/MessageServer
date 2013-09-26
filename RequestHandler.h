@@ -9,19 +9,18 @@
 
 #include <string>
 #include <list>
+#include <map>
 #include "ClientProxy.h"
 
 using namespace std;
 
 class RequestHandler {
 public:
-    //RequestHandler();
     virtual ~RequestHandler();
     virtual bool canHandle(string request);
     virtual bool handleRequest(string request, ClientProxy* client);
     
-    static list<RequestHandler*> getHandlers();
-    
+    static RequestHandler* getRequestHandler(string request);
 protected:
     virtual string getRequestPrefix() = 0;
     virtual string getName() = 0;
@@ -30,7 +29,9 @@ protected:
     bool sendOKResponse(ClientProxy* client);
     
 private:
-
+    typedef map<string, RequestHandler*> HandlerMap;
+    static HandlerMap createHandlerMap();
+    static HandlerMap handlerMap;
 };
 
 #endif	/* REQUESTHANDLER_H */

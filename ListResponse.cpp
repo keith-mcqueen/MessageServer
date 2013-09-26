@@ -14,24 +14,22 @@ ListResponse::ListResponse() : Response("list") {
 ListResponse::~ListResponse() {
 }
 
-void ListResponse::addSubject(string subject) {
-    this->subjects.push_back(subject);
+void ListResponse::setMessageCount(int count) {
+    this->messageCount = count;
+}
+
+void ListResponse::setMessageList(string messageList) {
+    this->messageList = messageList;
 }
 
 string ListResponse::getHeader() {
     stringstream ss;
     
-    ss << Response::getHeader() << " " << this->subjects.size();
+    ss << Response::getHeader() << " " << this->messageCount;
     
     return ss.str();
 }
 
 string ListResponse::getBody() {
-    stringstream ss;
-    
-    for (int i = 0; i < this->subjects.size(); i++) {
-        ss << i+1 << " " << this->subjects.at(i) << endl;
-    }
-    
-    return ss.str();
+    return this->messageList;
 }

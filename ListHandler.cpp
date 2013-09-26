@@ -31,12 +31,10 @@ bool ListHandler::doHandleRequest(string request, ClientProxy* client) {
     
     // get the message(s) for the recipient
     vector<Message*> messages = Server::instance()->getMessages(recipient);
-    string messageList = Server::instance()->getMessageListAsString(recipient);
     
     // prepare the response message
     ListResponse* response = new ListResponse();
-    response->setMessageCount(messages.size());
-    response->setMessageList(messageList);
+    response->addMessages(messages);
     
     // send the response
     bool success = client->sendResponse(response);

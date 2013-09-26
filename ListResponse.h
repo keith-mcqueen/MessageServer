@@ -16,16 +16,14 @@ class ListResponse : public Response {
 public:
     ListResponse();
     virtual ~ListResponse();
-    void setMessageCount(int count);
-    void setMessageList(string messageList);
+    void addMessages(vector<Message*> messages);
 
 protected:
     virtual string getHeader();
     virtual string getBody();
 
 private:
-    int messageCount;
-    string messageList;
+    vector<Message*> messages;
 };
 
 #endif	/* LISTRESPONSE_H */

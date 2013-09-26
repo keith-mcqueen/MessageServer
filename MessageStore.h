@@ -20,7 +20,6 @@ public:
     virtual ~MessageStore();
     void addMessage(string recipient, Message* message);
     vector<Message*> getMessages(string recipient);
-    string getMessageListAsString(string recipient);
     void clear();
 
 private:
@@ -28,7 +27,6 @@ private:
     void unlock();
     
     map<string, vector<Message*> > messagesByRecipient;
-    map<string, string> messageListStringsByRecipient;
     sem_t lock_;
 };
 

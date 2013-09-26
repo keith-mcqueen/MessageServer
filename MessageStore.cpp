@@ -23,13 +23,7 @@ void MessageStore::addMessage(string recipient, Message* message) {
     vector<Message*> messages = this->messagesByRecipient[recipient];
     messages.push_back(message);
     this->messagesByRecipient[recipient] = messages;
-    
-    // update the recipient's message-list string
-    stringstream ss;
-    ss << this->messageListStringsByRecipient[recipient];
-    ss << messages.size() << " " << message->getSubject() << endl;
-    this->messageListStringsByRecipient[recipient] = ss.str();
-    
+
     this->unlock();
 }
 
@@ -41,16 +35,6 @@ vector<Message*> MessageStore::getMessages(string recipient) {
     this->unlock();
     
     return messages;
-}
-
-string MessageStore::getMessageListAsString(string recipient) {
-    this->lock();
-    
-    string messageList = this->messageListStringsByRecipient[recipient];
-    
-    this->unlock();
-    
-    return messageList;
 }
 
 void MessageStore::clear() {
@@ -67,9 +51,6 @@ void MessageStore::clear() {
         }
     }
     this->messagesByRecipient.clear();
-    
-    // clear out the message-list strings
-    this->messageListStringsByRecipient.clear();
     
     this->unlock();
 }

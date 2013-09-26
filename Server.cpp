@@ -139,11 +139,6 @@ vector<Message*> Server::getMessages(string recipient) {
     return this->store.getMessages(recipient);
 }
 
-string Server::getMessageListAsString(string recipient) {
-    debug("Server::getMessageListAsString -- getting message list string from the store");
-    return this->store.getMessageListAsString(recipient);
-}
-
 void Server::reset() {
     debug("Server::reset -- clearing the message store");
     this->store.clear();

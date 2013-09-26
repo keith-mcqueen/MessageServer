@@ -23,7 +23,6 @@ public:
     void serve(int port, int maxClients, int numThreads);
     void addMessage(string recipient, Message* message);
     vector<Message*> getMessages(string recipient);
-    string getMessageListAsString(string recipient);
     void reset();
     
     static Server* instance();
